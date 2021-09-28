@@ -24,6 +24,7 @@ function App() {
       })
       .then(data => {
         const Country = data.map(item => item.Slug);
+        Country.sort();
         setCountries(Country);    
       })
   },[]);
