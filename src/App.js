@@ -16,6 +16,8 @@ function App() {
 
   const [countries, setCountries] = useState([]);
 
+  const [countrySelect, setCountrySelect] = useState("");
+
   //useEffect
 
   useEffect(() => {
@@ -34,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <Typography variant="h4" m={2}>Covid-19 Statistics By Country</Typography>
-      <CountryList countries={countries}/>
+      <CountryList countries={countries} setCountrySelect={setCountrySelect}/>
     </div>
   );
 }
