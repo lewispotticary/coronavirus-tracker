@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 //Material UI 
 import Select from '@mui/material/Select';
@@ -6,7 +6,26 @@ import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 
-const CountryPicker = ({countries, setCountrySelect}) => {
+const CountryPicker = ({countries, setCountrySelect, setCountries}) => {
+
+    useEffect(() => {
+        fetch("https://api.covid19api.com/countries")
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+    
+            //Sort data by alphabetical order
+            data.sort(function(a, b){
+              if(a.Country < b.Country) { return -1; }
+              if(a.Country > b.Country) { return 1; }
+              return 0;
+            })
+    
+            //Set countries state to the ordered data
+            setCountries(data);    
+          })
+      },[]);
 
     return(
         <div>
