@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react'
 
-import './App.css';
-
 //Components
-import CountryList from './components/CountryList';
+import { Cards, Chart, CountryPicker } from './components';
 
 //Material UI 
 
 import Typography from '@mui/material/Typography';
 
+//Styles
+import styles from './App.module.css';
 
 function App() {
 
@@ -26,17 +26,23 @@ function App() {
         return response.json();
       })
       .then(data => {
-        console.log(data);
-        const Country = data.map(item => item.Country);
-        Country.sort();
-        setCountries(Country);    
+
+        //Sort data by alphabetical order
+        data.sort(function(a, b){
+          if(a.Country < b.Country) { return -1; }
+          if(a.Country > b.Country) { return 1; }
+          return 0;
+        })
+
+        //Set countries state to the ordered data
+        setCountries(data);    
       })
   },[]);
 
   return (
-    <div className="App">
+    <div className={styles.container}>
       <Typography variant="h4" m={2}>Covid-19 Statistics By Country</Typography>
-      <CountryList countries={countries} setCountrySelect={setCountrySelect}/>
+      <CountryPicker countries={countries} setCountrySelect={setCountrySelect}/>
     </div>
   );
 }
