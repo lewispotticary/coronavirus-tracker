@@ -6,7 +6,19 @@ import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 
-const CountryPicker = ({countries, setCountrySelect, setCountries}) => {
+const CountryPicker = ({countries, setCountrySelect, setCountries, countrySelect}) => {
+
+    const countrySelectionHandler = () => {
+        fetch('https://api.covid19api.com/total/country/' + countrySelect)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+            })
+
+            //if data empty then filter out
+    }
 
     useEffect(() => {
         fetch("https://api.covid19api.com/countries")
@@ -14,7 +26,7 @@ const CountryPicker = ({countries, setCountrySelect, setCountries}) => {
             return response.json();
           })
           .then(data => {
-    
+            console.log(data);
             //Sort data by alphabetical order
             data.sort(function(a, b){
               if(a.Country < b.Country) { return -1; }
@@ -37,7 +49,10 @@ const CountryPicker = ({countries, setCountrySelect, setCountries}) => {
                 label="Country"
                 autoWidth
                 defaultValue=""
-                onChange={e => {setCountrySelect(e.target.value)}}
+                onChange={e => {
+                    setCountrySelect(e.target.value)
+                    countrySelectionHandler(e)
+                }}
                 >
                     {countries.map((item) => {
                         const Country = item.Country;
