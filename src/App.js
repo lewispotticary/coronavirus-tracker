@@ -20,8 +20,9 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <Typography variant="h4" m={2}>Covid-19 Statistics By Country</Typography>
-      <CountryPicker countries={countries} setCountrySelect={setCountrySelect} setCountries={setCountries}/>
+      <Typography variant="h4" m={2}>Covid-19 Tracker</Typography>
+      <CountryPicker countries={countries} setCountrySelect={setCountrySelect} setCountries={setCountries} countrySelect={countrySelect}/>
+      
     </div>
   );
 }
