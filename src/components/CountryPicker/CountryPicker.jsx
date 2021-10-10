@@ -8,36 +8,25 @@ import FormControl from '@mui/material/FormControl';
 
 const CountryPicker = ({countries, setCountrySelect, setCountries, countrySelect}) => {
 
-    const countrySelectionHandler = () => {
-        fetch('https://api.covid19api.com/total/country/' + countrySelect)
-            .then(response => {
-                return response.json();
-            })
-            .then(data => {
-                console.log(data);
-            })
-
-            //if data empty then filter out
-    }
+    //Fetch all countries 
 
     useEffect(() => {
-        fetch("https://api.covid19api.com/countries")
-          .then(response => {
-            return response.json();
-          })
-          .then(data => {
-            console.log(data);
-            //Sort data by alphabetical order
-            data.sort(function(a, b){
-              if(a.Country < b.Country) { return -1; }
-              if(a.Country > b.Country) { return 1; }
-              return 0;
-            })
-    
-            //Set countries state to the ordered data
-            setCountries(data);    
-          })
-      },[]);
+       const getCountriesData = async () => {
+           await fetch("https://disease.sh/v3/covid-19/countries")
+           .then((response) => response.json())
+           .then((data) => {
+                console.log(data);
+                const countries = data.map((country) => (
+                    {
+                        name: country.country,
+                        value: country.countryInfo.iso2
+                    }
+                ))
+                setCountries(countries);
+           })
+       } 
+       getCountriesData();
+    },[]);
 
     return(
         <div>
@@ -49,20 +38,12 @@ const CountryPicker = ({countries, setCountrySelect, setCountries, countrySelect
                 label="Country"
                 autoWidth
                 defaultValue=""
-                onChange={e => {
-                    setCountrySelect(e.target.value)
-                    countrySelectionHandler(e)
-                }}
                 >
-                    {countries.map((item) => {
-                        const Country = item.Country;
-                        const Slug = item.Slug;
-                         return (<MenuItem value={Slug} key={Math.random() * 1000}>{Country}</MenuItem>)
-                    })}
+                {countries.map((country) => {
+                    return(<MenuItem value={country.value} key={Math.random() * 1000}>{country.name}</MenuItem>)
+                })}
                 </Select>
             </FormControl>
-            
-        
         </div>      
     );
 }
