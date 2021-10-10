@@ -6,7 +6,15 @@ import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 
-const CountryPicker = ({countries, setCountrySelect, setCountries, countrySelect}) => {
+const CountryPicker = ({countries, setCountries, country, setCountry, setCountryInfo}) => {
+
+    useEffect(() => {
+        fetch("https://disease.sh/v3/covid-19/all")
+            .then((response) => response.json())
+            .then((data) => {
+                setCountryInfo(data);
+            })
+    },[]);
 
     //Fetch all countries 
 
@@ -15,7 +23,6 @@ const CountryPicker = ({countries, setCountrySelect, setCountries, countrySelect
            await fetch("https://disease.sh/v3/covid-19/countries")
            .then((response) => response.json())
            .then((data) => {
-                console.log(data);
                 const countries = data.map((country) => (
                     {
                         name: country.country,
@@ -28,6 +35,20 @@ const CountryPicker = ({countries, setCountrySelect, setCountries, countrySelect
        getCountriesData();
     },[]);
 
+    const onCountryChange = async (event) => {
+        const countryCode = event.target.value;
+
+        const url = countryCode === "worldwide" ? "https://disease.sh/v3/covid-19/all" : `https://disease.sh/v3/covid-19/countries/${countryCode}`
+
+        await fetch(url)
+           .then((response) => response.json())
+           .then((data) => {
+                setCountry(countryCode);
+                
+                setCountryInfo(data);
+           })
+    }
+
     return(
         <div>
             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
@@ -38,7 +59,10 @@ const CountryPicker = ({countries, setCountrySelect, setCountries, countrySelect
                 label="Country"
                 autoWidth
                 defaultValue=""
+                value={country}
+                onChange={onCountryChange}
                 >
+                <MenuItem value="worldwide">Worldwide</MenuItem>
                 {countries.map((country) => {
                     return(<MenuItem value={country.value} key={Math.random() * 1000}>{country.name}</MenuItem>)
                 })}
