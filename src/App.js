@@ -16,12 +16,24 @@ function App() {
 
   const [countries, setCountries] = useState([]);
 
-  const [countrySelect, setCountrySelect] = useState("");
+  const [country, setCountry] = useState("worldwide");
+
+  const [countryInfo, setCountryInfo] = useState("")
 
   return (
     <div className={styles.container}>
+      <div className={styles.containerLeft}>
+        div.
       <Typography variant="h4" m={2}>Covid-19 Tracker</Typography>
-      <CountryPicker countries={countries} setCountrySelect={setCountrySelect} setCountries={setCountries} countrySelect={countrySelect}/>
+
+      <CountryPicker 
+      countries={countries}
+      setCountries={setCountries}
+      country={country}
+      setCountry={setCountry}
+      countryInfo={countryInfo}
+      setCountryInfo={setCountryInfo}/>
+      </div>
       
     </div>
   );
