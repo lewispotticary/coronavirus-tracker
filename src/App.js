@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 //Components
-import { Cards, Chart, CountryPicker } from './components';
+import { Cards, Chart, CountryPicker, CountrySelected } from './components';
 
 //Material UI 
 
@@ -16,7 +16,11 @@ function App() {
 
   const [country, setCountry] = useState("worldwide");
 
-  const [countryInfo, setCountryInfo] = useState("")
+  const [countryInfo, setCountryInfo] = useState("");
+
+  const [countrySelect, setCountrySelect] = useState("");
+
+  const [image, setImage] = useState("");
 
   return (
     <div className={styles.container}>
@@ -28,6 +32,14 @@ function App() {
           setCountry={setCountry}
           countryInfo={countryInfo}
           setCountryInfo={setCountryInfo}/>
+
+          <CountrySelected 
+          countryInfo={countryInfo} 
+          setCountrySelect={setCountrySelect} 
+          countrySelect={countrySelect}
+          image={image}
+          setImage={setImage}
+          />
       
       </div>
       
