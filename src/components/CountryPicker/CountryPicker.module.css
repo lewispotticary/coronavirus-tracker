@@ -1,16 +1,16 @@
-img {
-  height: 3.6rem;
-}
-
 .appHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+  margin-top: 2rem;
 }
 
-.responsive {
+.headerImage {
+  height: 3.6rem;
   width: 100%;
   height: auto;
   max-width: 20rem;
   max-height: 3.6rem;
+  margin-bottom: 2rem;
 }

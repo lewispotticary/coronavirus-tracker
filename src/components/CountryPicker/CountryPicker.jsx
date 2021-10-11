@@ -58,7 +58,7 @@ const CountryPicker = ({countries, setCountries, country, setCountry, setCountry
         <div>
             <div className={styles.appHeader}>
 
-                <img src={headerImage} alt="header image" className={styles.responsive}/>
+                <img src={headerImage} alt="header image" className={styles.headerImage}/>
 
                 <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                     <InputLabel id="demo-simple-select-standard-label">Country</InputLabel>
