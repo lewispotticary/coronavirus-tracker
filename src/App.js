@@ -40,6 +40,8 @@ function App() {
           image={image}
           setImage={setImage}
           />
+
+          <Cards countryInfo={countryInfo}/>
       
       </div>
       
