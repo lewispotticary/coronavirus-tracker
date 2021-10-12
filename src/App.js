@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 //Components
-import { Cards, Chart, CountryPicker, CountrySelected } from './components';
+import { Cards, Chart, CountryPicker, CountrySelected, Table } from './components';
 
 //Material UI 
 
@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.containerLeft}>      
+      <div className={styles.containerHeader}>      
           <CountryPicker 
           countries={countries}
           setCountries={setCountries}
@@ -40,10 +40,18 @@ function App() {
           image={image}
           setImage={setImage}
           />
-
-          <Cards countryInfo={countryInfo}/>
-      
       </div>
+      
+      <div className={styles.containerMain}>
+        <div className={styles.containerMainLeft}>
+          <Cards countryInfo={countryInfo}/>
+        </div>
+        <div className={styles.containerMainRight}>
+          <Table />
+        </div>
+      </div>
+      
+      
       
     </div>
   );
