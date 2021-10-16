@@ -8,7 +8,7 @@ function Cards({countryInfo}) {
     return (
         <div className={styles.cardContainer}>
             <Grid container justify="center">
-                <Grid item component={Card} xs={12} md={3.15} className={styles.card}>
+                <Grid item component={Card} xs={12} md={3.25} className={styles.card}>
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Infected</Typography>
                         <Typography variant="h5"><CountUp start={0} end={countryInfo.cases} duration={2.5} separator=","/>
@@ -18,7 +18,7 @@ function Cards({countryInfo}) {
                         <Typography variant="body2">Number of active cases of COVID-19</Typography>
                     </CardContent>
                 </Grid>
-                <Grid item component={Card} xs={12} md={3.15} className={styles.card}>
+                <Grid item component={Card} xs={12} md={3.25} className={styles.card}>
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Recovered</Typography>
                         <Typography variant="h5"><CountUp start={0} end={countryInfo.recovered} duration={2.5} separator=","/></Typography>
@@ -26,7 +26,7 @@ function Cards({countryInfo}) {
                         <Typography variant="body2">Number of recoveries from COVID-19</Typography>
                     </CardContent>
                 </Grid>
-                <Grid item component={Card} xs={12} md={3.15} className={styles.card}>
+                <Grid item component={Card} xs={12} md={3.25} className={styles.card}>
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Deaths</Typography>
                         <Typography variant="h5"><CountUp start={0} end={countryInfo.deaths} duration={2.5} separator=","/>
