@@ -22,6 +22,8 @@ function App() {
 
   const [image, setImage] = useState("");
 
+  const [tableData, setTableData] = useState([]);
+
   return (
     <div className={styles.container}>
       <div className={styles.containerHeader}>      
@@ -31,7 +33,9 @@ function App() {
           country={country}
           setCountry={setCountry}
           countryInfo={countryInfo}
-          setCountryInfo={setCountryInfo}/>
+          setCountryInfo={setCountryInfo}
+          setTableData={setTableData}
+          />
 
           <CountrySelected 
           countryInfo={countryInfo} 
@@ -47,7 +51,7 @@ function App() {
           <Cards countryInfo={countryInfo}/>
         </div>
         <div className={styles.containerMainRight}>
-          <Table />
+          <Table setTableData={setTableData} tableData={tableData}/>
         </div>
       </div>
       
