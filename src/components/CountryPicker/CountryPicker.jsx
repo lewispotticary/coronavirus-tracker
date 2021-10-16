@@ -1,17 +1,16 @@
 import React, {useEffect} from "react";
 
 //Material UI 
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
+
+
+import {Select, MenuItem, InputLabel, FormControl} from '@mui/material';
 
 import styles from './CountryPicker.module.css';
 
 
 import headerImage from './img/headerImage.png';
 
-const CountryPicker = ({countries, setCountries, country, setCountry, setCountryInfo}) => {
+const CountryPicker = ({countries, setCountries, country, setCountry, setCountryInfo, setTableData}) => {
 
     useEffect(() => {
         fetch("https://disease.sh/v3/covid-19/all")
@@ -28,6 +27,7 @@ const CountryPicker = ({countries, setCountries, country, setCountry, setCountry
            await fetch("https://disease.sh/v3/covid-19/countries")
            .then((response) => response.json())
            .then((data) => {
+                setTableData(data.sort(function(a,b){return b.cases - a.cases}));
                 const countries = data.map((country) => (
                     {
                         name: country.country,
@@ -57,7 +57,7 @@ const CountryPicker = ({countries, setCountries, country, setCountry, setCountry
     return(
         <div>
             <div className={styles.appHeader}>
-
+                
                 <img src={headerImage} alt="header image" className={styles.headerImage}/>
 
                 <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
