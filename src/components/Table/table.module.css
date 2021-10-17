@@ -20,3 +20,7 @@
 .table td {
   padding: 0.5rem;
 }
+
+.card {
+  margin: 0 3% 2% !important;
+}

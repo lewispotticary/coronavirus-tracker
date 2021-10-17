@@ -8,7 +8,7 @@ function Table({tableData}) {
     return (
         <div>
             <Grid container justify="center">
-                <Grid item component={Card} xs={12} md={12} ml={3.15} mr={3.15}>
+                <Grid item component={Card} xs={12} md={12} className={styles.card}>
                     <CardContent>
                         <Typography variant="h5">Live Cases by Country</Typography>
                             <div className={styles.table}>
