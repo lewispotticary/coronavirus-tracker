@@ -24,6 +24,10 @@ function App() {
 
   const [tableData, setTableData] = useState([]);
 
+  const [casesChartData, setCasesChartData] = useState([]);
+
+  const [deathChartData, setDeathChartData] = useState([]);
+
   return (
     <div className={styles.container}>
       <div className={styles.containerHeader}>      
@@ -52,6 +56,7 @@ function App() {
         </div>
         <div className={styles.containerMainRight}>
           <Table setTableData={setTableData} tableData={tableData}/>
+          <Chart setCasesChartData={setCasesChartData} casesChartData={casesChartData} deathChartData={deathChartData} setDeathChartData={setDeathChartData}/>
         </div>
       </div>
       
