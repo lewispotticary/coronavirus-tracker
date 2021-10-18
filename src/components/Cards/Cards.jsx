@@ -2,7 +2,7 @@ import React from 'react'
 import {Card, CardContent, Typography, Grid} from '@mui/material';
 import CountUp from 'react-countup';
 
-import styles from './Cards.module.css'
+import styles from './Cards.module.css';
 
 function Cards({countryInfo}) {
     return (
