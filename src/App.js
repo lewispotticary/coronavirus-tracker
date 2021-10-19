@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 
 //Components
-import { Cards, Chart, CountryPicker, CountrySelected, Table } from './components';
+import { Cards, Chart, CountryPicker, CountrySelected, Table, Map } from './components';
 
 //Material UI 
 
 //Styles
 import styles from './App.module.css';
+
+import "leaflet/dist/leaflet.css"
 
 function App() {
 
@@ -53,12 +55,15 @@ function App() {
       <div className={styles.containerMain}>
         <div className={styles.containerMainLeft}>
           <Cards countryInfo={countryInfo}/>
+          
         </div>
         <div className={styles.containerMainRight}>
           <Table setTableData={setTableData} tableData={tableData}/>
           <Chart setCasesChartData={setCasesChartData} casesChartData={casesChartData} deathChartData={deathChartData} setDeathChartData={setDeathChartData}/>
         </div>
       </div>
+
+      <Map />
       
       
       
