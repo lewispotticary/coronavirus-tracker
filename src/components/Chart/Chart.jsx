@@ -12,8 +12,9 @@ function Chart({setCasesChartData, casesChartData, selection, setDeathChartData,
         let lastDataPoint;
         for(let date in data.cases) {
             if (lastDataPoint){
+                const dateFormatted = new Date(date).toLocaleString("en-GB", { year: 'numeric', month: '2-digit', day: '2-digit' })
                 const newDataPoint = {
-                    x: date,
+                    x: dateFormatted,
                     y: data[casesType][date] - lastDataPoint
                 }
                 chartDataArray.push(newDataPoint);
