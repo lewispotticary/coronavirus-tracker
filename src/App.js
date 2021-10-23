@@ -8,8 +8,6 @@ import { Cards, Chart, CountryPicker, CountrySelected, Table, Map } from './comp
 //Styles
 import styles from './App.module.css';
 
-import "leaflet/dist/leaflet.css"
-
 function App() {
 
   //useState
@@ -55,7 +53,7 @@ function App() {
       <div className={styles.containerMain}>
         <div className={styles.containerMainLeft}>
           <Cards countryInfo={countryInfo}/>
-          
+          <Map />
         </div>
         <div className={styles.containerMainRight}>
           <Table setTableData={setTableData} tableData={tableData}/>
@@ -63,7 +61,7 @@ function App() {
         </div>
       </div>
 
-      <Map />
+      
       
       
       
