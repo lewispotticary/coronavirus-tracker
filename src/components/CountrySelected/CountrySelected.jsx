@@ -19,7 +19,7 @@ function CountrySelected({countryInfo, countrySelect, setCountrySelect, image, s
             setImage(image);
             setCountrySelect(countrySelect);
             setMapCenter([countryInfo.countryInfo.lat, countryInfo.countryInfo.long]);
-            setZoom(4);
+            setZoom(6);
         }
     }
 
