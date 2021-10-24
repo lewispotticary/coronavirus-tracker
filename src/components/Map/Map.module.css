@@ -6,3 +6,12 @@
 .card {
   margin: 0 3% 2% !important;
 }
+
+.countryFlag {
+  max-width: 5rem;
+  width: 100%;
+}
+
+.mapHeader {
+  display: flex;
+}
