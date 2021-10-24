@@ -30,7 +30,13 @@ function App() {
 
   const [mapCenter, setMapCenter] = useState([34.80746, -40.4796]);
 
-  const [zoom, setZoom] = useState(3);
+  const [zoom, setZoom] = useState(0);
+
+  const [mapData, setMapData] = useState("cases");
+
+  const [circleColour, setCircleColour] = useState("rgba(0, 0, 255, 0.5)");
+
+  const [circleRadius, setCircleRadius] = useState(30);
 
   return (
     <div className={styles.container}>
@@ -59,7 +65,18 @@ function App() {
       <div className={styles.containerMain}>
         <div className={styles.containerMainLeft}>
           <Cards countryInfo={countryInfo}/>
-          <Map mapCenter={mapCenter} zoom={zoom} countryInfo={countryInfo} tableData={tableData}/>
+          <Map 
+          mapCenter={mapCenter} 
+          zoom={zoom} 
+          countryInfo={countryInfo} 
+          tableData={tableData} 
+          mapData={mapData} 
+          setMapData={setMapData} 
+          circleColour={circleColour} 
+          setCircleColour={setCircleColour}
+          setCircleRadius={setCircleRadius}
+          circleRadius={circleRadius}
+          />
         </div>
         <div className={styles.containerMainRight}>
           <Table setTableData={setTableData} tableData={tableData}/>
