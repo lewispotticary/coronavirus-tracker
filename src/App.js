@@ -28,6 +28,10 @@ function App() {
 
   const [deathChartData, setDeathChartData] = useState([]);
 
+  const [mapCenter, setMapCenter] = useState([34.80746, -40.4796]);
+
+  const [zoom, setZoom] = useState(3);
+
   return (
     <div className={styles.container}>
       <div className={styles.containerHeader}>      
@@ -47,13 +51,15 @@ function App() {
           countrySelect={countrySelect}
           image={image}
           setImage={setImage}
+          setMapCenter={setMapCenter}
+          setZoom={setZoom}
           />
       </div>
       
       <div className={styles.containerMain}>
         <div className={styles.containerMainLeft}>
           <Cards countryInfo={countryInfo}/>
-          <Map />
+          <Map mapCenter={mapCenter} zoom={zoom} countryInfo={countryInfo} tableData={tableData}/>
         </div>
         <div className={styles.containerMainRight}>
           <Table setTableData={setTableData} tableData={tableData}/>

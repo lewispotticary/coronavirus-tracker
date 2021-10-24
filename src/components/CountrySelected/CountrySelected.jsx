@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 
 import styles from './CountrySelected.module.css'
 
-function CountrySelected({countryInfo, countrySelect, setCountrySelect, image, setImage}) {
+function CountrySelected({countryInfo, countrySelect, setCountrySelect, image, setImage, setMapCenter, setZoom}) {
 
     const countrySelectHandler = () => {
         if (countryInfo.country === undefined) {
@@ -10,12 +10,16 @@ function CountrySelected({countryInfo, countrySelect, setCountrySelect, image, s
             const image = "";
             setImage(image);
             setCountrySelect(countrySelect);
+            setMapCenter([34.80746, -40.4796]);
+            setZoom(3);
         }
         else{
             const countrySelect = `${countryInfo.country}, ${countryInfo.countryInfo.iso3}`;
             const image = countryInfo.countryInfo.flag;
             setImage(image);
             setCountrySelect(countrySelect);
+            setMapCenter([countryInfo.countryInfo.lat, countryInfo.countryInfo.long]);
+            setZoom(4);
         }
     }
 
