@@ -54,12 +54,12 @@ function Chart({setCasesChartData, casesChartData, selection, setDeathChartData,
                                 <Line 
                                 data={{
                                     datasets: [{
-                                        backgroundColor: "rgba(92, 151, 191, 1)",
+                                        backgroundColor: "rgba(0, 0, 255, 0.5)",
                                         borderColor: "#5333ed",
                                         data: casesChartData,
                                         label: "Cases",
                                     },{
-                                        backgroundColor: "rgba(226, 106, 106, 1)",
+                                        backgroundColor: "rgba(255, 0, 0, 0.5)",
                                         borderColor: "#CC1034",
                                         data: deathChartData,
                                         label: "Deaths",
