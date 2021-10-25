@@ -76,6 +76,8 @@ function App() {
           setCircleColour={setCircleColour}
           setCircleRadius={setCircleRadius}
           circleRadius={circleRadius}
+          setMapCenter={setMapCenter}
+          setZoom={setZoom}
           />
         </div>
         <div className={styles.containerMainRight}>
