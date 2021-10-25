@@ -10,8 +10,8 @@ function CountrySelected({countryInfo, countrySelect, setCountrySelect, image, s
             const image = "";
             setImage(image);
             setCountrySelect(countrySelect);
-            setMapCenter([34.80746, -40.4796]);
-            setZoom(3);
+            setMapCenter([34.80746, -15.4796]);
+            setZoom(2);
         }
         else{
             const countrySelect = `${countryInfo.country}, ${countryInfo.countryInfo.iso3}`;
