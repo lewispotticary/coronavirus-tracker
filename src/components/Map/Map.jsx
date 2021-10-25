@@ -12,7 +12,7 @@ import {Card, CardContent, Typography, Grid, Select, MenuItem, InputLabel, FormC
 
 import { MapContainer, TileLayer, Marker, Popup, useMapEvent, useMap, Circle} from 'react-leaflet';
 
-function Map({mapCenter, zoom, tableData, setMapData, mapData, circleColour, setCircleColour, circleRadius, setCircleRadius}) {
+function Map({mapCenter, zoom, tableData, setMapData, mapData, circleColour, setCircleColour, circleRadius, setCircleRadius, setMapCenter, setZoom}) {
     
     const mapDataHandler = (event) => {
         setMapData(event.target.value);
@@ -28,6 +28,11 @@ function Map({mapCenter, zoom, tableData, setMapData, mapData, circleColour, set
             setCircleColour("rgba(255, 0, 0, 0.5)")
             setCircleRadius(1);
         }
+    }
+
+    const resetHandler = () => {
+        setMapCenter([34.80746, -40.4796]);
+        setZoom(2);
     }
 
     const showDataMap = (caseType = mapData) => 
@@ -64,7 +69,7 @@ function Map({mapCenter, zoom, tableData, setMapData, mapData, circleColour, set
                                     <MenuItem value={"deaths"}>Deaths</MenuItem>
                                 </Select>
                             </FormControl>
-                            <Button variant="outlined" size="medium" sx={{ mb: 1}} onClick={resetHandler()}>Reset</Button>
+                            <Button variant="outlined" size="medium" sx={{ mb: 1}} onClick={resetHandler}>Reset</Button>
                         </div>
                             <MapContainer mapCenter={mapCenter} zoom={zoom} scrollWheelZoom={false} className={styles.map}>
                                 <MapView mapCenter={mapCenter} zoom={zoom} />
