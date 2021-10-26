@@ -2,16 +2,20 @@ import React, {useEffect} from 'react'
 
 import styles from './CountrySelected.module.css'
 
+import {Card, CardContent, Typography, Grid, Select, MenuItem, InputLabel, FormControl, Button} from '@mui/material';
+
+import globeImage from './img/globe-image.JPG';
+
 function CountrySelected({countryInfo, countrySelect, setCountrySelect, image, setImage, setMapCenter, setZoom}) {
 
     const countrySelectHandler = () => {
         if (countryInfo.country === undefined) {
             const countrySelect = "Worldwide";
-            const image = "";
+            const image = globeImage;
             setImage(image);
             setCountrySelect(countrySelect);
-            setMapCenter([34.80746, -15.4796]);
-            setZoom(2);
+            setMapCenter([34.80746, -40.4796]);
+            setZoom(3);
         }
         else{
             const countrySelect = `${countryInfo.country}, ${countryInfo.countryInfo.iso3}`;
@@ -29,8 +33,14 @@ function CountrySelected({countryInfo, countrySelect, setCountrySelect, image, s
 
     return (
         <div className={styles.appCountry}>
-            <h1>{countrySelect}</h1>
-            <img className={styles.countryFlag} src={image} alt="" />
+            <Grid container justify="center" className={styles.gridContainer}>
+                    <Grid item component={Card} xs={12} md={12} className={styles.card}>
+                        <CardContent className={styles.cardContent}>
+                            <h1>{countrySelect}</h1>
+                            <img className={styles.countryFlag} src={image} alt="" />
+                        </CardContent>
+                    </Grid>
+                </Grid> 
         </div>
     )
 }
