@@ -3,7 +3,9 @@ import React, {useEffect} from "react";
 //Material UI 
 
 
-import {Select, MenuItem, InputLabel, FormControl} from '@mui/material';
+
+
+import {Card, CardContent, Typography, Grid, Select, MenuItem, InputLabel, FormControl, Button} from '@mui/material';
 
 import styles from './CountryPicker.module.css';
 
@@ -51,8 +53,7 @@ const CountryPicker = ({countries, setCountries, country, setCountry, setCountry
         await fetch(url)
            .then((response) => response.json())
            .then((data) => {
-                setCountry(countryCode);
-                
+                setCountry(countryCode);  
                 setCountryInfo(data);
            })
     }
@@ -60,26 +61,30 @@ const CountryPicker = ({countries, setCountries, country, setCountry, setCountry
     return(
         <div>
             <div className={styles.appHeader}>
-                
-                <img src={headerImage} alt="header image" className={styles.headerImage}/>
-
-                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                    <InputLabel id="demo-simple-select-standard-label">Country</InputLabel>
-                    <Select
-                    labelId="demo-simple-select-standard-label"
-                    id="demo-simple-select-standard"
-                    label="Country"
-                    autoWidth
-                    defaultValue=""
-                    value={country}
-                    onChange={onCountryChange}
-                    >
-                    <MenuItem value="worldwide">Worldwide</MenuItem>
-                    {countries.map((country) => {
-                        return(<MenuItem value={country.value} key={Math.random() * 1000}>{country.name}</MenuItem>)
-                    })}
-                    </Select>
-                </FormControl>
+                <Grid container justify="center" className={styles.gridContainer}>
+                    <Grid item component={Card} xs={12} md={12} className={styles.card}>
+                        <CardContent className={styles.cardContent}>
+                            <img src={headerImage} alt="header image" className={styles.headerImage}/>
+                            <FormControl size="large" sx={{ m: 1, minWidth: 120 }}>
+                                <InputLabel id="demo-simple-select-label">Country</InputLabel>
+                                    <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    label="Country"
+                                    autoWidth
+                                    defaultValue=""
+                                    value={country}
+                                    onChange={onCountryChange}
+                                    >
+                                    <MenuItem value="worldwide">Worldwide</MenuItem>
+                                    {countries.map((country) => {
+                                        return(<MenuItem value={country.value} key={Math.random() * 1000}>{country.name}</MenuItem>)
+                                    })}
+                                    </Select>
+                            </FormControl>
+                        </CardContent>
+                    </Grid>
+                </Grid> 
             </div>
         </div>      
     );
