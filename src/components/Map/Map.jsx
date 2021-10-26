@@ -39,10 +39,10 @@ function Map({mapCenter, zoom, tableData, setMapData, mapData, circleColour, set
         tableData.map((data) => (
             <Circle center={[data.countryInfo.lat, data.countryInfo.long]} fillOpacity={0.4} radius={data[caseType] / circleRadius} pathOptions={{ color: circleColour }}>
                 <Popup>
-                    <div className="infoContainer">
-                        <Typography variant="h5">{data.country}</Typography>
+                    <div className={styles.infoContainer}>
+                        <Typography variant="h5" className={styles.countryName}>{data.country}</Typography>
                         <img className={styles.countryFlag} src={data.countryInfo.flag} alt="" />
-                        <Typography variant="body2" color="black">{caseType.charAt(0).toUpperCase() + caseType.slice(1)}: <CountUp start={0} end={data[caseType]} duration={2.5}separator=","/></Typography>
+                        <b><Typography variant="body2" color="black">{caseType.charAt(0).toUpperCase() + caseType.slice(1)}: <CountUp start={0} end={data[caseType]} duration={2.5}separator=","/></Typography></b>
                     </div>
                 </Popup>
             </Circle>
@@ -79,6 +79,7 @@ function Map({mapCenter, zoom, tableData, setMapData, mapData, circleColour, set
                                 />
                                 {showDataMap()}
                             </MapContainer>
+                            
                     </CardContent>
                 </Grid>
             </Grid>
