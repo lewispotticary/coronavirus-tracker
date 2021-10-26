@@ -10,8 +10,27 @@
 .countryFlag {
   max-width: 5rem;
   width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 1rem;
 }
 
 .mapHeader {
   display: flex;
+}
+
+.countryName {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.countryNameContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
