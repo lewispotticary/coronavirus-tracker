@@ -39,9 +39,12 @@ function App() {
   const [circleRadius, setCircleRadius] = useState(30);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.containerHeader}>      
-          <CountryPicker 
+    <body>
+      
+    <div className={styles.container}> 
+      <div className={styles.containerMain}>
+        <div className={styles.containerMainLeft}>
+        <CountryPicker 
           countries={countries}
           setCountries={setCountries}
           country={country}
@@ -50,8 +53,7 @@ function App() {
           setCountryInfo={setCountryInfo}
           setTableData={setTableData}
           />
-
-          <CountrySelected 
+        <CountrySelected 
           countryInfo={countryInfo} 
           setCountrySelect={setCountrySelect} 
           countrySelect={countrySelect}
@@ -60,10 +62,6 @@ function App() {
           setMapCenter={setMapCenter}
           setZoom={setZoom}
           />
-      </div>
-      
-      <div className={styles.containerMain}>
-        <div className={styles.containerMainLeft}>
           <Cards countryInfo={countryInfo}/>
           <Map 
           mapCenter={mapCenter} 
@@ -88,9 +86,10 @@ function App() {
 
       
       
-      
-      
+
     </div>
+
+    </body>
   );
 }
 
