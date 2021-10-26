@@ -1,5 +1,7 @@
 .card {
   margin: 0 3% 2% !important;
+  height: 11.3rem;
+  max-height: 11.3rem;
 }
 
 .cases {
