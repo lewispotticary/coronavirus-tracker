@@ -1,17 +1,31 @@
-.appCountry {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-}
-
 .countryFlag {
-  height: 2.5rem;
-  width: 100%;
-  height: auto;
   max-width: 4rem;
   max-height: 2.5rem;
-  margin-top: 0.5rem;
+}
+
+.gridContainer {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+
+.card {
+  margin: 0 3% 2% !important;
+}
+
+.cardContent {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media only screen and (max-width: 960px) {
+  .cardContent {
+    flex-direction: column;
+  }
+  .countryFlag {
+    margin-top: 1rem;
+  }
 }
