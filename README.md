@@ -5,7 +5,7 @@ Covid-19 tracker web application. Built using React.JS, Material UI, Chart.JS, a
 # Screenshot:
 
 <p align="center">
-  <img src="Screenshot/React-Expense-Tracker-Screenshot.JPG" />
+  <img src="Screenshot/covidTrackerProject.JPG" />
 </p>
 
 #
