@@ -1,9 +1,12 @@
 import React, {useEffect} from 'react'
 
+//Styles
 import styles from './CountrySelected.module.css'
 
-import {Card, CardContent, Typography, Grid, Select, MenuItem, InputLabel, FormControl, Button} from '@mui/material';
+//Material UI
+import {Card, CardContent, Grid} from '@mui/material';
 
+//Globe image import
 import globeImage from './img/globe-image.JPG';
 
 function CountrySelected({countryInfo, countrySelect, setCountrySelect, image, setImage, setMapCenter, setZoom}) {

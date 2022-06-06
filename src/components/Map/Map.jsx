@@ -1,28 +1,36 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 
+//Styles
 import styles from './Map.module.css';
 
+//Leaflet CSS import
 import 'leaflet/dist/leaflet.css';
 
+//Map view import
 import MapView from '../MapView/MapView';
 
+//Count up library 
 import CountUp from 'react-countup';
 
+//Material UI
 import {Card, CardContent, Typography, Grid, Select, MenuItem, InputLabel, FormControl, Button} from '@mui/material';
 
-import { MapContainer, TileLayer, Marker, Popup, useMapEvent, useMap, Circle} from 'react-leaflet';
+//Leaflet components import
+import { MapContainer, TileLayer, Popup, Circle} from 'react-leaflet';
 
 function Map({mapCenter, zoom, tableData, setMapData, mapData, circleColour, setCircleColour, circleRadius, setCircleRadius, setMapCenter, setZoom}) {
+
+    //Change circle colour and radius on selection of cases, recovered or deaths
     
     const mapDataHandler = (event) => {
         setMapData(event.target.value);
         if(event.target.value === "cases"){
             setCircleColour("rgba(0, 0, 255, 0.5)")
-            setCircleRadius(30);
+            setCircleRadius(50);
         }
         else if(event.target.value === "recovered"){
             setCircleColour("rgba(0, 255, 0, 0.5)")
-            setCircleRadius(25);
+            setCircleRadius(50);
         }
         else if(event.target.value === "deaths"){
             setCircleColour("rgba(255, 0, 0, 0.5)")
@@ -30,10 +38,14 @@ function Map({mapCenter, zoom, tableData, setMapData, mapData, circleColour, set
         }
     }
 
+    //Set map center and zoom
+
     const resetHandler = () => {
         setMapCenter([34.80746, -40.4796]);
         setZoom(2);
     }
+
+    //Map data to map and create pop up for each country that includes specific data
 
     const showDataMap = (caseType = mapData) => 
         tableData.map((data) => (

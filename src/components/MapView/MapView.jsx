@@ -1,4 +1,4 @@
-import React from 'react'
+//Defines the default map center and zoom
 
 import { useMap } from 'react-leaflet';
 

@@ -1,9 +1,13 @@
-import React, {useEffect} from 'react'
+//Material UI
 import {Card, CardContent, Typography, Grid} from '@mui/material';
+
+//Styles
 import styles from './table.module.css';
+
+//Count up library 
 import CountUp from 'react-countup';
 
-
+//Maps case data related to country into a table
 function Table({tableData}) {
     return (
         <div>

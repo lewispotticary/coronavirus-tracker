@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 
-//Components
-import { Cards, Chart, CountryPicker, CountrySelected, Table, Map } from './components';
-
 //Material UI 
+import { Cards, Chart, CountryPicker, CountrySelected, Table, Map } from './components';
 
 //Styles
 import styles from './App.module.css';
@@ -39,56 +37,50 @@ function App() {
   const [circleRadius, setCircleRadius] = useState(30);
 
   return (
-    <body>
-      
-    <div className={styles.container}> 
-      <div className={styles.containerMain}>
-        <div className={styles.containerMainLeft}>
-        <CountryPicker 
-          countries={countries}
-          setCountries={setCountries}
-          country={country}
-          setCountry={setCountry}
-          countryInfo={countryInfo}
-          setCountryInfo={setCountryInfo}
-          setTableData={setTableData}
-          />
-        <CountrySelected 
-          countryInfo={countryInfo} 
-          setCountrySelect={setCountrySelect} 
-          countrySelect={countrySelect}
-          image={image}
-          setImage={setImage}
-          setMapCenter={setMapCenter}
-          setZoom={setZoom}
-          />
-          <Cards countryInfo={countryInfo}/>
-          <Map 
-          mapCenter={mapCenter} 
-          zoom={zoom} 
-          countryInfo={countryInfo} 
-          tableData={tableData} 
-          mapData={mapData} 
-          setMapData={setMapData} 
-          circleColour={circleColour} 
-          setCircleColour={setCircleColour}
-          setCircleRadius={setCircleRadius}
-          circleRadius={circleRadius}
-          setMapCenter={setMapCenter}
-          setZoom={setZoom}
-          />
-        </div>
-        <div className={styles.containerMainRight}>
-          <Table setTableData={setTableData} tableData={tableData}/>
-          <Chart setCasesChartData={setCasesChartData} casesChartData={casesChartData} deathChartData={deathChartData} setDeathChartData={setDeathChartData}/>
+    <body> 
+      <div className={styles.container}> 
+        <div className={styles.containerMain}>
+          <div className={styles.containerMainLeft}>
+            <CountryPicker 
+              countries={countries}
+              setCountries={setCountries}
+              country={country}
+              setCountry={setCountry}
+              countryInfo={countryInfo}
+              setCountryInfo={setCountryInfo}
+              setTableData={setTableData}
+              />
+            <CountrySelected 
+              countryInfo={countryInfo} 
+              setCountrySelect={setCountrySelect} 
+              countrySelect={countrySelect}
+              image={image}
+              setImage={setImage}
+              setMapCenter={setMapCenter}
+              setZoom={setZoom}
+              />
+              <Cards countryInfo={countryInfo}/>
+              <Map 
+              mapCenter={mapCenter} 
+              zoom={zoom} 
+              countryInfo={countryInfo} 
+              tableData={tableData} 
+              mapData={mapData} 
+              setMapData={setMapData} 
+              circleColour={circleColour} 
+              setCircleColour={setCircleColour}
+              setCircleRadius={setCircleRadius}
+              circleRadius={circleRadius}
+              setMapCenter={setMapCenter}
+              setZoom={setZoom}
+              />
+          </div>
+          <div className={styles.containerMainRight}>
+            <Table setTableData={setTableData} tableData={tableData}/>
+            <Chart setCasesChartData={setCasesChartData} casesChartData={casesChartData} deathChartData={deathChartData} setDeathChartData={setDeathChartData}/>
+          </div>
         </div>
       </div>
-
-      
-      
-
-    </div>
-
     </body>
   );
 }
